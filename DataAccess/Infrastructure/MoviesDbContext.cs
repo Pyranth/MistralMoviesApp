@@ -36,6 +36,9 @@ namespace DataAccess.Infrastructure
                 .HasOne(r => r.Movie)
                 .WithMany(m => m.Ratings)
                 .HasForeignKey(r => r.MovieId);
+
+            // Seed data (extended method)
+            modelBuilder.SeedData();
         }
     }
 }
