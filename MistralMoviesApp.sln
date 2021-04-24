@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MistralMoviesApp", "MistralMoviesApp\MistralMoviesApp.csproj", "{BCCDB9DA-E1CA-45BD-9F13-5B4AE5EBF651}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{201D298F-4A62-45BC-AE45-1C2917CB8C06}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCCDB9DA-E1CA-45BD-9F13-5B4AE5EBF651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCCDB9DA-E1CA-45BD-9F13-5B4AE5EBF651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCCDB9DA-E1CA-45BD-9F13-5B4AE5EBF651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCCDB9DA-E1CA-45BD-9F13-5B4AE5EBF651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{201D298F-4A62-45BC-AE45-1C2917CB8C06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{201D298F-4A62-45BC-AE45-1C2917CB8C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{201D298F-4A62-45BC-AE45-1C2917CB8C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{201D298F-4A62-45BC-AE45-1C2917CB8C06}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CF3A861-EE18-42EE-8067-45FE6A1D2AB8}
+	EndGlobalSection
+EndGlobal
