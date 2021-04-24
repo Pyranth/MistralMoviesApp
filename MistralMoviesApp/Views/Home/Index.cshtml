@@ -2,7 +2,90 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="text-center">
+
+        <div class="text-left">
+            <label class="d-block" for="search">Search</label>
+            <input onkeyup="search()" id="search" name="search" />
+        </div>
+
+        <div>
+            <button id="type" name="type">Movies</button>
+        </div>
+
+        <div id="partial" data-loaded="10">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Cover image
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Release Date
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div>
+            <button onclick="loadMore()">Load more</button>
+        </div>
+    </div>
+
+<script>
+    $(document).ready(function () {
+        loadItemsToPartial(0, '');
+    });
+
+    function loadItemsToPartial(loaded, text) {
+        $.ajax({
+            type: "GET",
+            url: "/Movies/List?text=" + text + '&loaded=' + loaded,
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (result, status, xhr) {
+                $("#partial tbody").append(result);
+            },
+            error: function (xhr, status, error) {
+                alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+            }
+        });
+    }
+
+    function loadMore() {
+        var loaded = $('#partial').data('loaded');
+        var searchText = $('#search').val();
+
+        loadItemsToPartial(loaded, searchText);
+    }
+
+    function search() {
+        var searchInput = $('#search');
+
+        var searchText = searchInput.val();
+
+        if (searchText.length >= 2) {
+            $("#partial tbody").html('');
+            $('#partial').data('loaded', 0);
+
+            loadItemsToPartial(0, searchText);
+        }
+        else if (searchText.length == 0) {
+            $("#partial tbody").html('');
+            $('#partial').data('loaded', 0);
+
+            loadItemsToPartial(0, searchText);
+        }
+    }
+</script>
