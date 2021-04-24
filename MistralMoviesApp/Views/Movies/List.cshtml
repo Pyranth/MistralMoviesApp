@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataAccess.Models.Movie>
+﻿@model IEnumerable<MistralMoviesApp.Models.MovieListViewModel>
 
 
 @foreach (var item in Model) {
@@ -14,6 +14,26 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+        <td>
+            @*@Html.Display(String.Join(", ", item.Cast.Select(m => m.Actor.Name)))*@
+        </td>
+        <td>
+            @{ 
+                var ratingsCount = new List<int>();
+                ratingsCount.Add(item.Ratings.Count(m => m.Stars == 5));
+                ratingsCount.Add(item.Ratings.Count(m => m.Stars == 4));
+                ratingsCount.Add(item.Ratings.Count(m => m.Stars == 3));
+                ratingsCount.Add(item.Ratings.Count(m => m.Stars == 2));
+                ratingsCount.Add(item.Ratings.Count(m => m.Stars == 1));
+                var average = item.Ratings.Count == 0 ? "0" : item.Ratings.Average(m => m.Stars).ToString("0.00");
+            }
+            <p>5 Stars: @Html.DisplayFor(modelItem => ratingsCount[0])</p>
+            <p>4 Stars: @Html.DisplayFor(modelItem => ratingsCount[1])</p>
+            <p>3 Stars: @Html.DisplayFor(modelItem => ratingsCount[2])</p>
+            <p>2 Stars: @Html.DisplayFor(modelItem => ratingsCount[3])</p>
+            <p>1 Stars: @Html.DisplayFor(modelItem => ratingsCount[4])</p>
+            <p>Average: @average</p>
         </td>
         <td>
         </td>

@@ -30,6 +30,8 @@ namespace MistralMoviesApp
             services.AddDbContext<MoviesDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("Connection"),
                         b => b.MigrationsAssembly(typeof(MoviesDbContext).Assembly.FullName)));
+
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
