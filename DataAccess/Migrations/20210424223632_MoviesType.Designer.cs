@@ -4,14 +4,16 @@ using DataAccess.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(MoviesDbContext))]
-    partial class MoviesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210424223632_MoviesType")]
+    partial class MoviesType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -338,42 +340,6 @@ namespace DataAccess.Migrations
                             Name = "Star Wars: Episode V - The Empire Strikes Back",
                             ReleaseDate = new DateTime(1994, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Type = 1
-                        },
-                        new
-                        {
-                            Id = 15,
-                            CoverImage = "",
-                            Description = "",
-                            Name = "Planet Earth",
-                            ReleaseDate = new DateTime(1994, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
-                        },
-                        new
-                        {
-                            Id = 16,
-                            CoverImage = "",
-                            Description = "",
-                            Name = "Band of Brothers",
-                            ReleaseDate = new DateTime(1994, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
-                        },
-                        new
-                        {
-                            Id = 17,
-                            CoverImage = "",
-                            Description = "",
-                            Name = "Breaking Bad",
-                            ReleaseDate = new DateTime(1994, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
-                        },
-                        new
-                        {
-                            Id = 18,
-                            CoverImage = "",
-                            Description = "",
-                            Name = "Chernobyl",
-                            ReleaseDate = new DateTime(1994, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
                         });
                 });
 

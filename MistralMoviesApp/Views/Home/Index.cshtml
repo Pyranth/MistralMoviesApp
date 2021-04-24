@@ -10,7 +10,7 @@
         </div>
 
         <div>
-            <button id="type" name="type">Movies</button>
+            <button id="type" value="1" name="type">Movies</button>
         </div>
 
         <div id="partial" data-loaded="10">
@@ -49,9 +49,11 @@
     });
 
     function loadItemsToPartial(loaded, text) {
+        var type = $('#type').val();
+
         $.ajax({
             type: "GET",
-            url: "/Movies/List?text=" + text + '&loaded=' + loaded,
+            url: "/Movies/List?text=" + text + '&loaded=' + loaded + '&type=' + type,
             contentType: "application/json; charset=utf-8",
             dataType: "html",
             success: function (result, status, xhr) {
@@ -88,4 +90,19 @@
             loadItemsToPartial(0, searchText);
         }
     }
+
+    $('#type').on('click', e => {
+        if ($(e.target).val() == 1) {
+            $(e.target).val(2);
+            $(e.target).text('TV Shows');
+
+            search();
+        }
+        else {
+            $(e.target).val(1);
+            $(e.target).text('Movies');
+
+            search();
+        }
+    });
 </script>

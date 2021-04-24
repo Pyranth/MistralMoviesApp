@@ -26,7 +26,7 @@ namespace MistralMoviesApp.Controllers
             return View();
         }
 
-        public IActionResult List(int loaded = 0, string text = "")
+        public IActionResult List(int loaded = 0, string text = "", MovieType type = MovieType.MOVIE)
         {
             if (text == null)
                 text = "";
@@ -36,6 +36,7 @@ namespace MistralMoviesApp.Controllers
                         .Include(m => m.Ratings);
 
             var result = list
+                        .Where(m => m.Type == type)
                         .Where(m => m.Name.Contains(text) ||
                                     m.Description.Contains(text) ||
                                     m.Cast.Select(m => m.Actor).Any(m => m.Name.Contains(text)))

@@ -6,6 +6,12 @@ using System.Text;
 
 namespace DataAccess.Models
 {
+    public enum MovieType
+    {
+        MOVIE = 1,
+        TV_SHOW = 2
+    }
+
     public class Movie
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,6 +26,7 @@ namespace DataAccess.Models
         [DataType(DataType.Date)]
         [Required]
         public DateTime ReleaseDate { get; set; }
+        public MovieType Type { get; set; }
         public ICollection<ActorInMovie> Cast { get; set; }
         public ICollection<Rating> Ratings { get; set; }
     }
