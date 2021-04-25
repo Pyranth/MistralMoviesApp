@@ -4,14 +4,16 @@ using DataAccess.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(MoviesDbContext))]
-    partial class MoviesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210425195845_MoviesSeed4")]
+    partial class MoviesSeed4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -216,7 +218,7 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CoverImage = "image1.png",
+                            CoverImage = "image1.jpeg",
                             Description = "",
                             Name = "The Shawshank Redemption",
                             ReleaseDate = new DateTime(1994, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),

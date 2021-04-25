@@ -12,8 +12,8 @@ namespace DataAccess.Infrastructure
         {
             modelBuilder.Entity<Movie>().HasData(
                 // Movies
-                new Movie() { Id = 1, Name = "The Shawshank Redemption", Description = "", CoverImage = "", ReleaseDate = new DateTime(1994, 10, 4), Type = MovieType.MOVIE},
-                new Movie() { Id = 2, Name = "The Godfather", Description = "", CoverImage = "", ReleaseDate = new DateTime(1994, 10, 4), Type = MovieType.MOVIE},
+                new Movie() { Id = 1, Name = "The Shawshank Redemption", Description = "", CoverImage = "image1.png", ReleaseDate = new DateTime(1994, 10, 4), Type = MovieType.MOVIE},
+                new Movie() { Id = 2, Name = "The Godfather", Description = "", CoverImage = "image2.png", ReleaseDate = new DateTime(1994, 10, 4), Type = MovieType.MOVIE},
                 new Movie() { Id = 3, Name = "The Godfather: Part II", Description = "", CoverImage = "", ReleaseDate = new DateTime(1994, 10, 4), Type = MovieType.MOVIE},
                 new Movie() { Id = 4, Name = "The Dark Knight", Description = "", CoverImage = "", ReleaseDate = new DateTime(1994, 10, 4), Type = MovieType.MOVIE},
                 new Movie() { Id = 5, Name = "12 Angry Men", Description = "", CoverImage = "", ReleaseDate = new DateTime(1994, 10, 4), Type = MovieType.MOVIE},

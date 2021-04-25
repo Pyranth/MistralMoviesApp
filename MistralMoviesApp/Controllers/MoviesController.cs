@@ -6,6 +6,7 @@ using AutoMapper;
 using DataAccess.Infrastructure;
 using DataAccess.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MistralMoviesApp.Models;
@@ -16,10 +17,13 @@ namespace MistralMoviesApp.Controllers
     {
         private MoviesDbContext _context;
         private IMapper _mapper;
-        public MoviesController(MoviesDbContext context, IMapper mapper)
+        private IWebHostEnvironment _env;
+
+        public MoviesController(MoviesDbContext context, IMapper mapper, IWebHostEnvironment env)
         {
             _context = context;
             _mapper = mapper;
+            _env = env;
         }
 
         [AllowAnonymous]
