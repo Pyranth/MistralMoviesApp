@@ -49,5 +49,28 @@ namespace MistralMoviesApp.Controllers
 
             return PartialView(_mapper.Map<List<MovieListViewModel>>(result));
         }
+
+        public IActionResult RateMovies()
+        {
+            var list = _context.Movies;
+
+            return View(list);
+        }
+
+        [HttpPost]
+        public IActionResult RateMovies(MoviesRatingPostModel model)
+        { 
+            for (int i = 0; i < model.Id.Count; i++)
+            {
+                if (model.Ratings[i] == null)
+                    continue;
+
+                _context.Ratings.Add(new Rating() { MovieId = model.Id[i], Stars = model.Ratings[i].Value });
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

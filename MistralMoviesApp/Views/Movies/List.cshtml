@@ -13,10 +13,10 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
+            @item.ReleaseDate.ToString("dd.MM.yyyy.")
         </td>
         <td>
-            @*@Html.Display(String.Join(", ", item.Cast.Select(m => m.Actor.Name)))*@
+            @String.Join(", ", item.Actors.Select(m => m.Name))
         </td>
         <td>
             @{ 
