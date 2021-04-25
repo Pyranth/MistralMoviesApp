@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DataAccess.Infrastructure;
 using DataAccess.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MistralMoviesApp.Models;
 
 namespace MistralMoviesApp.Controllers
 {
-    public class MoviesController : Controller
+    public class MoviesController : BaseController
     {
         private MoviesDbContext _context;
         private IMapper _mapper;
@@ -21,11 +22,7 @@ namespace MistralMoviesApp.Controllers
             _mapper = mapper;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
+        [AllowAnonymous]
         public IActionResult List(int loaded = 0, string text = "", MovieType type = MovieType.MOVIE)
         {
             if (text == null)
@@ -50,6 +47,7 @@ namespace MistralMoviesApp.Controllers
             return PartialView(_mapper.Map<List<MovieListViewModel>>(result));
         }
 
+        [AllowAnonymous]
         public IActionResult RateMovies()
         {
             var list = _context.Movies;
@@ -57,6 +55,7 @@ namespace MistralMoviesApp.Controllers
             return View(list);
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult RateMovies(MoviesRatingPostModel model)
         { 
