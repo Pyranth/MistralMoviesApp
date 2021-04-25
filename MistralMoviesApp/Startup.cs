@@ -31,12 +31,15 @@ namespace MistralMoviesApp
         {
             services.AddControllersWithViews();
 
+            // Add DbContext based on "Connection" ConnectionString in appsettings.json (Use appsettings.Development.json for development mode)
             services.AddDbContext<MoviesDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("Connection"),
                         b => b.MigrationsAssembly(typeof(MoviesDbContext).Assembly.FullName)));
 
+            // Add auto mapper, package for easy mapping between objects
             services.AddAutoMapper(typeof(Startup));
 
+            // Add basic authentication (example better suited for API project but works for the purpose of example).
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

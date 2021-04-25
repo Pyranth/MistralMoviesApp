@@ -13,12 +13,12 @@
             <button id="type" value="1" name="type">Movies</button>
         </div>
 
-        <div id="partial" data-loaded="10">
+        <div id="partial" data-loaded="10" class="mt-5">
             <table class="table">
                 <thead>
                     <tr>
                         <th>
-                            Name
+                            Name 
                         </th>
                         <th>
                             Cover image
@@ -39,6 +39,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- jQuery load data -->
                 </tbody>
             </table>
 
@@ -50,10 +51,12 @@
     </div>
 
 <script>
+    // Initially load 10 movies
     $(document).ready(function () {
         loadItemsToPartial(0, '');
     });
 
+    // Function to load 10 (or less) items
     function loadItemsToPartial(loaded, text) {
         var type = $('#type').val();
 
@@ -71,6 +74,7 @@
         });
     }
 
+    // Load more movies/tv shows and append to existing list
     function loadMore() {
         var loaded = $('#partial').data('loaded');
         var searchText = $('#search').val();
@@ -78,6 +82,7 @@
         loadItemsToPartial(loaded, searchText);
     }
 
+    // Search and reload movies/tv show list
     function search() {
         var searchInput = $('#search');
 
@@ -97,6 +102,7 @@
         }
     }
 
+    // Toggle between Movies and TV Shows
     $('#type').on('click', e => {
         if ($(e.target).val() == 1) {
             $(e.target).val(2);
